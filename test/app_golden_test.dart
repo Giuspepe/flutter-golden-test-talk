@@ -10,7 +10,12 @@ import 'golden_test_helpers/device.dart';
 import 'golden_test_helpers/golden_test_device_scenario.dart';
 
 Future<void> main() async {
-  final devices = [Device.tablet, Device.iphone11, Device.ipod, Device.ipod.landscape];
+  final devices = [
+    Device.tablet,
+    Device.iphone11,
+    Device.ipod,
+    Device.ipod.landscape
+  ];
 
   final settingsController = SettingsController(SettingsService());
 
@@ -25,9 +30,12 @@ Future<void> main() async {
   });
 
   for (final device in devices) {
-
     goldenTest(
       'app golden test (on ${device.name})',
+      whilePerforming: (tester) async {
+        await precacheImages(tester);
+        return;
+      },
       fileName: 'app_${device.name}',
       builder: () => GoldenTestGroup(
         children: [
