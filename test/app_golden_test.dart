@@ -10,7 +10,7 @@ import 'golden_test_helpers/device.dart';
 import 'golden_test_helpers/golden_test_device_scenario.dart';
 
 Future<void> main() async {
-  const devices = [Device.tablet, Device.iphone11, Device.ipod];
+  final devices = [Device.tablet, Device.iphone11, Device.ipod, Device.ipod.landscape];
 
   final settingsController = SettingsController(SettingsService());
 
@@ -25,6 +25,7 @@ Future<void> main() async {
   });
 
   for (final device in devices) {
+
     goldenTest(
       'app golden test (on ${device.name})',
       fileName: 'app_${device.name}',
