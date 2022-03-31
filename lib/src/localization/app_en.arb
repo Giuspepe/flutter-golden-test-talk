@@ -1,0 +1,6 @@
+{
+  "appTitle": "flutter_golden_test_talk",
+  "@appTitle": {
+    "description": "The title of the application"
+  }
+}
