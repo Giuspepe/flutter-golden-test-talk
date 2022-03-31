@@ -15,14 +15,14 @@ class Device {
   });
 
   Device get landscape => Device(
-      name: '${this.name}_landscape',
-      size: this.size.flipped,
-      devicePixelRatio: this.devicePixelRatio,
+      name: '${name}_landscape',
+      size: size.flipped,
+      devicePixelRatio: devicePixelRatio,
       safeArea: EdgeInsets.only(
-        left: this.safeArea.top,
-        top: this.safeArea.right,
-        right: this.safeArea.bottom,
-        bottom: this.safeArea.left,
+        left: safeArea.top,
+        top: safeArea.right,
+        right: safeArea.bottom,
+        bottom: safeArea.left,
       ));
 
   static const Device verySmallPhone =
@@ -45,8 +45,7 @@ class Device {
   );
 
   /// [tablet] example of tablet (portrait mode)
-  static const Device tablet =
-      Device(name: 'tablet', size: Size(1024, 1366));
+  static const Device tablet = Device(name: 'tablet', size: Size(1024, 1366));
 
   /// [name] specify device name. Ex: Phone, Tablet, Watch
   final String name;
@@ -79,7 +78,7 @@ class Device {
       size: size ?? this.size,
       devicePixelRatio: devicePixelRatio ?? this.devicePixelRatio,
       name: name ?? this.name,
-      textScaleFactor: textScale ?? this.textScaleFactor,
+      textScaleFactor: textScale ?? textScaleFactor,
       brightness: brightness ?? this.brightness,
       safeArea: safeArea ?? this.safeArea,
     );

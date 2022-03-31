@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'device.dart';
 
-// TODO(Giuseppe): issue/vorschlag/PR für alchemist?
-
 /// Wrapper for testing screens with device constraints in [GoldenTestGroup]s
 ///
 /// [GoldenTestGroup] on its own passes no size constraints down the widget tree,
@@ -25,20 +23,20 @@ class GoldenTestDeviceScenario extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GoldenTestScenario(
-      name: '${this.name} (device: ${device.name})',
+      name: '$name (device: ${device.name})',
       // clip shadows
       child: ClipRect(
         child: MediaQuery(
           data: MediaQuery.of(context).copyWith(
-            size: this.device.size,
-            padding: this.device.safeArea,
-            platformBrightness: this.device.brightness,
-            devicePixelRatio: this.device.devicePixelRatio,
-            textScaleFactor: this.device.textScaleFactor,
+            size: device.size,
+            padding: device.safeArea,
+            platformBrightness: device.brightness,
+            devicePixelRatio: device.devicePixelRatio,
+            textScaleFactor: device.textScaleFactor,
           ),
           child: SizedBox(
-            height: this.device.size.height,
-            width: this.device.size.width,
+            height: device.size.height,
+            width: device.size.width,
             child: builder(),
           ),
         ),
